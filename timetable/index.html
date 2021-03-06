@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>系统日志</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+ 
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+ 
+        .container{
+            width: 100%;
+            height: 100%;
+        }
+
+        .title{
+            text-align: center;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var oBtn = document.getElementById("btn");
+            var oFrame = document.getElementById("info-frame");
+            oBtn.onclick = function(){
+                var oSelect = document.getElementById("weekinfo");
+                // var new_src = oSelect.value;
+                oFrame.setAttribute("src",oSelect.value);
+            }
+        }
+
+
+    </script>
+</head>
+<body>
+        <div class="title">
+            <h1>TimeTable</h1>
+            <form>
+                <select id="weekinfo">
+                    <option value="w2.html" selected>week 2</option>
+                    <option value="w3.html">week 3</option>
+                    <option value="w4.html">week 4</option>
+                    <option value="w5.html">week 5</option>
+                    <option value="w6.html">week 6</option>
+                    <option value="w7.html">week 7</option>
+                    <option value="w8.html">week 8</option>
+                    <option value="w9.html">week 9</option>
+                    <option value="w10.html">week 10</option>
+                    <option value="w11.html">week 11</option>
+                    <option value="w12.html">week 12</option>
+                    <option value="w13.html">week 13</option>
+                    <option value="w14.html">week 14</option>
+                    <option value="w15.html">week 15</option>
+                    <option value="w16.html">week 16</option>
+                    <option value="w17.html">week 17</option>
+                    <option value="w18.html">week 18</option>
+                </select>    
+                <button type="button" id='btn'>确定</button>
+                <!-- 加了type=button后不会点击刷新页面 -->
+            </form>
+        </div>
+
+        <div class = "container" >
+
+        <iframe src ="w2.html"  id="info-frame"  width="100%" height="100%" ></iframe>
+            
+        </div>
+ 
+</body>
+ 
+</html>
