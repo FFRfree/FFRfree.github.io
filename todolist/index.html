@@ -19,22 +19,31 @@
     <script>
 
         window.onload = function () {
+            
+            if (getCookie('todolistData') == '') {
+                // first visit cookie handle
+                data = {
+                    tableData: [{ item: "欢迎使用todolist,本网页将会使用cookie进行缓存" }],
+                    search: ''
+                }
+            } else {
+                data = {
+                    tableData: JSON.parse(getCookie('todolistData')),
+                    search: ''
+                }
+            }
+
 
 
 
             var vm = new Vue({
                 el: '#todolist1',
-                data: function () {
-                    return {
-                        tableData: JSON.parse(getCookie('todolistData')),
-                        search: ''
-                    }
-                },
+                data: data,
                 methods: {
                     saveToCookie: function () {
                         let dataStr = JSON.stringify(this.tableData);
                         console.log(dataStr)
-                        setCookie('todolistData', dataStr, 1);
+                        setCookie('todolistData', dataStr, 10);
                         // location.reload();
                     },
                     handleEdit(index, row) {
@@ -47,7 +56,7 @@
                                 type: 'success',
                                 message: '修改成功'
                             });
-                            this.tableData.splice(index,1,{item: value})
+                            this.tableData.splice(index, 1, { item: value })
                         }).catch(() => {
                             this.$message({
                                 type: 'info',
@@ -70,7 +79,7 @@
                                 type: 'success',
                                 message: '添加成功'
                             });
-                            this.tableData.push({item: value})
+                            this.tableData.push({ item: value })
                         }).catch(() => {
                             this.$message({
                                 type: 'info',
@@ -93,7 +102,7 @@
     <div id='todolist1'>
 
         <el-table :data="tableData.filter(data => !search || data.item.toLowerCase().includes(search.toLowerCase()))"
-            style="width: 100% ;border: 1px solid black" :show-header='true' >
+            style="width: 100% ;border: 1px solid black" :show-header='true'>
             <el-table-column label="TO DO LIST" prop="item">
             </el-table-column>
             <el-table-column align="right">
@@ -101,14 +110,15 @@
                     <el-input v-model="search" size="mini" placeholder="输入关键字搜索" />
                 </template>
                 <template slot-scope="scope">
-                    <el-button size="mini"  @click="handleEdit(scope.$index, scope.row)" icon="el-icon-edit"></el-button>
-                    <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)" icon="el-icon-delete">
+                    <el-button size="mini" @click="handleEdit(scope.$index, scope.row)" icon="el-icon-edit"></el-button>
+                    <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)"
+                        icon="el-icon-delete">
                     </el-button>
                 </template>
             </el-table-column>
         </el-table>
-        <el-button  type="primary" @click="saveToCookie" size="mini">save</el-button>
-        <el-button  type="success" @click="handleAppend" size="mini">append</el-button>
+        <el-button type="primary" @click="saveToCookie" size="mini">save</el-button>
+        <el-button type="success" @click="handleAppend" size="mini">append</el-button>
     </div>
 
 
