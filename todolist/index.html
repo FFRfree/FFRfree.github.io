@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>todo-list</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script src="util.js"></script>
+
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <!-- 引入组件库 -->
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script>
+
+        window.onload = function () {
+
+
+
+            var vm = new Vue({
+                el: '#todolist1',
+                data: function () {
+                    return {
+                        tableData: JSON.parse(getCookie('todolistData')),
+                        search: ''
+                    }
+                },
+                methods: {
+                    saveToCookie: function () {
+                        let dataStr = JSON.stringify(this.tableData);
+                        console.log(dataStr)
+                        setCookie('todolistData', dataStr, 1);
+                        // location.reload();
+                    },
+                    handleEdit(index, row) {
+                        this.$prompt('请输入信息', '提示', {
+                            confirmButtonText: '确定',
+                            cancelButtonText: '取消',
+                            inputValue: row.item
+                        }).then(({ value }) => {
+                            this.$message({
+                                type: 'success',
+                                message: '修改成功'
+                            });
+                            this.tableData.splice(index,1,{item: value})
+                        }).catch(() => {
+                            this.$message({
+                                type: 'info',
+                                message: '取消输入'
+                            });
+                        });
+                    },
+                    handleDelete(index, row) {
+                        // console.log(index, row);
+                        this.tableData.splice(index, 1)
+                    },
+                    handleAppend() {
+                        // this.tableData.splice(-1,0,)
+                        this.$prompt('请输入信息', '提示', {
+                            confirmButtonText: '确定',
+                            cancelButtonText: '取消',
+                            inputValue: ''
+                        }).then(({ value }) => {
+                            this.$message({
+                                type: 'success',
+                                message: '添加成功'
+                            });
+                            this.tableData.push({item: value})
+                        }).catch(() => {
+                            this.$message({
+                                type: 'info',
+                                message: '取消输入'
+                            });
+                        });
+                    }
+                },
+            })
+        }
+
+    </script>
+
+
+</head>
+
+
+
+<body>
+    <div id='todolist1'>
+
+        <el-table :data="tableData.filter(data => !search || data.item.toLowerCase().includes(search.toLowerCase()))"
+            style="width: 100% ;border: 1px solid black" :show-header='true' >
+            <el-table-column label="TO DO LIST" prop="item">
+            </el-table-column>
+            <el-table-column align="right">
+                <template slot="header" slot-scope="scope">
+                    <el-input v-model="search" size="mini" placeholder="输入关键字搜索" />
+                </template>
+                <template slot-scope="scope">
+                    <el-button size="mini"  @click="handleEdit(scope.$index, scope.row)" icon="el-icon-edit"></el-button>
+                    <el-button size="mini" type="danger" @click="handleDelete(scope.$index, scope.row)" icon="el-icon-delete">
+                    </el-button>
+                </template>
+            </el-table-column>
+        </el-table>
+        <el-button  type="primary" @click="saveToCookie" size="mini">save</el-button>
+        <el-button  type="success" @click="handleAppend" size="mini">append</el-button>
+    </div>
+
+
+
+
+</body>
+
+</html>
