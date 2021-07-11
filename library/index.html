@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./style.css" rel="stylesheet">
+  <title>图书馆座位预约系统</title>
+  <script src="https://cdn.jsdelivr.net/gh/xiangyuecn/Recorder@latest/dist/recorder-core.js"></script>
+  <script src="waveview.js"></script>
+  <link rel="stylesheet" href="loading.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="imgBx">
+        <img src="design.png" alt="">
+      </div>
+      <div class="contentBx">
+        <!-- <h2>座位预约</h2> -->
+
+        <a href="#"><span><strong>座位预约</strong></span></a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="imgBx">
+        <div id="substitudeBx">
+
+          <img src="code.png" alt="">
+          <!-- <strong class="txt">俸福睿 同学 <br>欢迎进入图书馆学习</strong> -->
+
+        </div>
+      </div>
+      <div class="contentBx">
+        <!-- <h2>登录</h2> -->
+        <a href="#"><span id="btn">
+          <strong>声纹识别</strong>
+        </span></a>
+      </div>
+    </div>
+  </div>
+  <script>
+    function grantRecordPermission() {
+      recOpen();
+    }
+  </script>
+  <script src="record.js" onload="grantRecordPermission()"></script>
+</body>
+
+</html>
