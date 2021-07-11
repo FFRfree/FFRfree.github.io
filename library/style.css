@@ -41,10 +41,12 @@ body{
   text-align: center;
   width: 260px;
   height: 124px;
+  display: flex;
 }
 
 .container .card .imgBx img{
   max-width: 120px;
+  margin: auto;
 }
 
 .container .card .imgBx .txt{
@@ -57,19 +59,25 @@ body{
   
 }
 
+#substitudeBx {
+  
+  margin: auto;
+}
+
 .container .card .contentBx{
   position: relative;
   margin-top: 20px;
   text-align: center;
-
   /* margin-bottom: 20px; */
 }
 
-.container .card .contentBx h2{
+.container .card .contentBx h3{
   color: #32a3b1;
   font-weight: 700;
-  font-size: 1.4em;
+  font-size: 1.2em;
   letter-spacing: 2px;
+  padding: 10px 20px;
+  margin-top: 15px;
 }
 
 .container .card .contentBx p{
