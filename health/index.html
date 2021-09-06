@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="upload_file.js"></script>
+  <link href="./style.css" rel="stylesheet">
+  <title>图书馆座位预约系统</title>
+  <script src="https://cdn.jsdelivr.net/gh/xiangyuecn/Recorder@latest/dist/recorder-core.js"></script>
+  <script src="waveview.js"></script>
+  <link rel="stylesheet" href="loading.css">
+  <link rel="stylesheet" href="upload_file.css">
+</head>
+
+<body>
+  <div class="container">
+    <div id='beta'>
+      内测版本：0.12.3beta
+    </div>
+
+    <div class="card">
+      <div class="imgBx">
+        <form class='upload' action="" method="POST">
+          <input type="file" multiple>
+          <p></p>
+        </form>
+      </div>
+      <div class="contentBx">
+        <!-- <h2>座位预约</h2> -->
+        <a href="#"><span><strong>上传音频</strong></span></a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="imgBx">
+        <div id="substitudeBx">
+          <img src="code.png" alt="">
+          <!-- 诊断为AD的概率为85% -->
+        </div>
+      </div>
+      <div class="contentBx">
+        <!-- <h2>登录</h2> -->
+        <a href="#"><span id="btn">
+            <strong>进行诊断</strong>
+          </span></a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="imgBx">
+        <img src="launch.png" alt="">
+      </div>
+      <div class="contentBx">
+        <a href="#"><span><strong>生成分析报告</strong></span></a>
+      </div>
+    </div>
+
+  </div>
+  <script>
+    function grantRecordPermission() {
+      recOpen();
+    }
+  </script>
+  <script src="record.js" onload="grantRecordPermission()"></script>
+</body>
+
+</html>

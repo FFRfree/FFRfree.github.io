@@ -1,0 +1,132 @@
+*{
+  font-family: '微软雅黑', sans-serif;
+  box-sizing: border-box;
+}
+p {
+  color: #4EA6FF;
+}
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-image: url('bg_qisheng.png');
+  background-size: 100% 100%;
+  overflow: hidden;
+}
+.container{
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 700px;
+  flex-wrap: wrap;
+  margin-top: 200px;
+}
+
+.container .card{
+  /* margin: 20px; */
+  padding: 10px 10px;
+  background: transparent;
+  border-radius: 40px;
+  box-shadow: -3px -3px 20px #91B9E6;
+  color: #4EA6FF;
+  width: 200px;
+  height: 200px;
+}
+
+.container .card:hover{
+  box-shadow: inset -3px -3px 8px rgba(255, 255, 255, 0.3),
+              inset 3px 3px 8px rgba(255, 255, 255, 0.5);
+}
+
+.container .card .imgBx{
+  position: relative;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  /* width: 260px; */
+  height: 120px;
+  display: flex;
+}
+
+.container .card .imgBx img{
+  max-width: 120px;
+  margin: auto;
+}
+
+.container .card .imgBx .txt{
+  display: flex;
+  width: 160px;
+  height: 20px;
+  position: relative;
+  margin: auto;
+  color: #32a3b1;
+  font-size:x-large;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+#substitudeBx {
+  margin: auto;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+}
+
+.container .card .contentBx{
+  display: flex;
+  /* position: relative; */
+  /* margin-top: 20px; */
+  /* text-align: center; */
+  /* align-items: center; */
+  /* max-width: 120px; */
+  /* margin-bottom: 20px; */
+  justify-content: center;
+}
+
+.container .card .contentBx h3{
+  color: #32a3b1;
+  font-weight: 700;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+  padding: 10px 20px;
+  margin-top: 15px;
+}
+
+
+.container .card .contentBx a{
+  flex-direction: column;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border-radius: 40px;
+  color: #32a3b1;
+  font-size: 16px;
+  text-decoration: none;
+  box-shadow: -2px -2px 10px rgba(255, 255, 255, 1),
+  2px 2px 10px rgba(0, 0, 0, .1);
+}
+
+.container .card .contentBx a:hover{
+  box-shadow: inset -2px -2px 10px rgba(255, 255, 255, 0.5),
+  inset 2px 2px 10px rgba(0, 0, 0, .1);
+}
+
+.container .card .contentBx a:hover span{
+  display: block;
+  transform: scale(0.98);
+}
+
+.container .card:hover .imgBx,
+.container .card:hover .contentBx{
+  transform: scale(0.98);
+}
+
+#beta {
+  display: inline-block;
+  position: absolute;
+  top: -100px;
+  left: 450px;
+  color: white;
+}
