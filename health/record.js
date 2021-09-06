@@ -9,7 +9,7 @@ let verifyFail = '<strong>诊断失败</strong>'
 let mode = 1
 let usrname = '俸福睿'
 let prob = '轻症'
-let diagnosis = '诊断结果为：'+ prob
+let diagnosis = '诊断结果为：'
 
 mybtn.addEventListener("mousedown", pressingDown, false);
 mybtn.addEventListener("mouseup", notPressingDown, false);
@@ -28,7 +28,7 @@ function notPressingDown(e) {
     setTimeout(function(){
         if(mode){
             mybtn.innerHTML=verifySuccess
-            imgBx.innerHTML=diagnosis
+            imgBx.innerHTML=diagnosis + prob
         }
         else{
             mybtn.innerHTML=verifyFail
