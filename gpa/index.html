@@ -6,113 +6,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>计算器</title>
-
-    <script src='https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js'></script>
-
-    <script>
-        $(document).ready(function () {
-            //document fully loaded
-            $("#appendRow").click(function () {
-                let row = '\
-                <tr class="data">\
-                    <td><input type="text"></td>\
-                    <td><input type="number" class="credit"></td>\
-                    <td><input type="number" class="score"></td>\
-                    <td class="weightedSum"></td>\
-                </tr>'
-                $("#mytable").append(row)
-            })
-
-            $("#calculate").click(function () {
-                //traverse the class="data" tablerow calculate weighted-sum
-                $(".data").each(function (index, elem) {
-                    //select a row
-                    let credit = $(elem).find("td input[type='number']")[0].value
-                    let score = $(elem).find("td input[type='number']")[1].value
-                    let weighted_sum = credit * score
-                    $(elem).find("td.weightedSum")[0].innerHTML = weighted_sum
-                })
-                let selected1 = $(".credit")
-                let selected2 = $(".weightedSum")
-                let creditSum = 0
-                let sum = 0
-                for (let i = 0; i < selected1.length; i++) {
-                    creditSum += eval(selected1[i].value)
-                }
-                for (let i = 0; i < selected2.length; i++) {
-                    sum += parseInt(selected2[i].innerHTML)
-                }
-                // console.log(creditSum)
-                // console.log(sum)
-                $("#averageOutput").text("你的平均GPA是: " + sum / creditSum)
-            })
-        })
-
-
-    </script>
-
-    <style>
-        /* Border styles */
-        #mytable thead,
-        #mytable tr {
-            border-top-width: 1px;
-            border-top-style: solid;
-            border-top-color: rgb(230, 189, 189);
-        }
-
-        #mytable {
-            border-bottom-width: 1px;
-            border-bottom-style: solid;
-            border-bottom-color: rgb(230, 189, 189);
-        }
-
-        /* Padding and font style */
-        #mytable td,
-        #mytable th {
-            padding: 5px 10px;
-            font-size: 12px;
-            font-family: Verdana;
-            color: rgb(177, 106, 104);
-        }
-
-        /* Alternating background colors */
-        #mytable tr:nth-child(even) {
-            background: rgb(238, 211, 210)
-        }
-
-        #mytable tr:nth-child(odd) {
-            background: #FFF
-        }
-
-        .center {
-            text-align: center;
-            border: 3px solid rgb(238, 211, 210);
-        }
-    </style>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src='https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js'></script>    
+    <script src="./main.js"></script>
 </head>
 
 <body>
-    <table id="mytable">
-        <thead>
-            <div class="center">GPA计算器</div>
-        </thead>
-        <tr>
-            <th>课程名称</th>
-            <th>学分</th>
-            <th>成绩</th>
-            <th>加权成绩</th>
-        </tr>
-        <tr class="data">
-            <td><input type="text"></td>
-            <td><input type="number" class="credit"></td>
-            <td><input type="number" class="score"></td>
-            <td class="weightedSum"></td>
-        </tr>
-    </table>
-    <button id="appendRow">append a row</button>
-    <button id="calculate">calculate</button>
-    <div id="averageOutput"></div>
-</body>
+    <div class="container-sm">
+        <table id="mytable" class="table table-hover">
+            <thead>
+                
+                <caption class="text-center fs-2 caption-top">GPA计算器</caption>
+                <tr class="table-primary text-center">
+                    <th scope="col" class="col-2">课程名称(可不填)</th>
+                    <th scope="col" class="col-2">学分</th>
+                    <th scope="col" class="col-2">成绩</th>
+                    <th scope="col" class="col-2">加权成绩</th>
+                    <th scope="col" class="col-1">操作</th>
+                </tr>
+            </thead>
+            <tr class="data">
+                <td><input type="text" class="form-control"></td>
+                <td><input type="number" class="credit form-control"></td>
+                <td><input type="number" class="score form-control"></td>
+                <td class="weightedSum text-center pt-3"></td>
+                <td><button class="delete btn btn-primary">delete</button></td>
+            </tr>
+        </table>
+        
+        <class class="row justify-content-end">
 
+            <div class="btn-group col-6" role="group">
+                <button id="appendRow" class="btn btn-outline-primary">append a row</button>
+                <button id="import" class="btn btn-outline-primary" >import</button>
+                <button id="calculate" class="btn btn-outline-primary">calculate</button>
+            </div>
+        </class>
+        <div class="row justify-content-end">
+            <div id="averageOutput" class="col-4 text-end"></div>
+        </div>
+    </div>
+</body>
 </html>
