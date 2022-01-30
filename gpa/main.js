@@ -47,7 +47,7 @@ window.onload = function () {
         for (let i = 0; i < selected2.length; i++) {
             weightedScore = parseInt(selected2[i].innerHTML);
             if (typeof weightedScore === 'number' && !isNaN(weightedScore)){
-                sum += parseInt(selected2[i].innerHTML)
+                sum += eval(selected2[i].innerHTML)
             }
         }
         // console.log(creditSum)
