@@ -6,17 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>计算器</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src='https://cdn.bootcss.com/jquery/1.11.0/jquery.min.js'></script>    
-    <script src="./main.js"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNBKKX4BBT"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-ZNBKKX4BBT');
+    </script>
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <script src="js/bootstrap.js"></script>
+    <script src='js/jquery.js'></script>
+    <script src="js/main.js"></script>
 </head>
 
 <body>
     <div class="container-sm">
         <table id="mytable" class="table table-hover">
             <thead>
-                
                 <caption class="text-center fs-2 caption-top">GPA计算器</caption>
                 <tr class="table-primary text-center">
                     <th scope="col" class="col-4">课程名称(可不填)</th>
@@ -34,12 +42,12 @@
                 <td><button class="delete btn btn-primary">delete</button></td>
             </tr>
         </table>
-        
+
         <class class="d-flex justify-content-end">
             <!-- col-12 col-sm-8 col-md-6 -->
             <div class="btn-group" role="group">
                 <button id="appendRow" class="btn btn-outline-primary">append a row</button>
-                <button id="import" class="btn btn-outline-primary" >import</button>
+                <button id="import" class="btn btn-outline-primary">import</button>
                 <button id="calculate" class="btn btn-outline-primary">calculate</button>
             </div>
         </class>
@@ -48,4 +56,5 @@
         </div>
     </div>
 </body>
+
 </html>
